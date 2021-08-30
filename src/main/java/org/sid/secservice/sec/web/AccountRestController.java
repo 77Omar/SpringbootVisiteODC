@@ -40,7 +40,7 @@ public class AccountRestController {
     }
 
     
-    @GetMapping(path = "/employer")
+    @GetMapping(path = "/employers")
     public List<Employer> appEmployers(){
         return accountService.listEmployers();
     }
@@ -55,7 +55,7 @@ public class AccountRestController {
         return accountService.listVisitesById(id);
     }
 
-    @GetMapping({"/employer/{id}"})
+    @GetMapping({"/employers/{id}"})
     public Object appEmployerById(@PathVariable("id") Long id){
         return accountService.listEmployerById(id);
     }
@@ -98,12 +98,12 @@ public class AccountRestController {
         return accountService.AddNewRole(appRole);
     }
 
-    @PutMapping(path ="/employer/{id}")
+    @PutMapping(path ="/employers/{id}")
     public Employer saveUpdateEmployer(@PathVariable Long id ,@RequestBody Employer employer){
         return accountService.modifEmployer(id, employer);
     }
 
-    @DeleteMapping(path ="/employer/{id}")
+    @DeleteMapping(path ="/employers/{id}")
     public Employer deleteEmployer(@PathVariable("id") Long id ){
         return accountService.deleteEmployerById(id);
     }
@@ -174,7 +174,7 @@ public class AccountRestController {
        return accountService.AddVisites(visite);
     }
 
-    @PostMapping(path = "/employer")
+    @PostMapping(path = "/employers")
     public Employer saveEmployer(@RequestBody Employer employer){
         return accountService.AddEmployer(employer);
     }
